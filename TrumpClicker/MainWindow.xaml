@@ -6,12 +6,15 @@
         xmlns:local="clr-namespace:TrumpClicker"
         mc:Ignorable="d"
         Title="Trump Clicker" Height="630" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" FontFamily="Courier New" FontSize="13.333">
+    <Window.Background>
+        <ImageBrush ImageSource="Assets/trump.jpg"/>
+    </Window.Background>
     <Window.ContextMenu>
         <ContextMenu FontFamily="Courier New" HasDropShadow="True">
             <MenuItem Header="Save" IsCheckable="True" ToolTip="Turns saving on close on and off."/>
         </ContextMenu>
     </Window.ContextMenu>
     <Grid>
-        
+
     </Grid>
 </Window>

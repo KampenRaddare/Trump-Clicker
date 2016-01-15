@@ -7,12 +7,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TrumpClicker")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Trump Clicker")]
+[assembly: AssemblyDescription("A clone of cookie clicker but with Donald Trump.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TrumpClicker")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCompany("Kampen Raddare")]
+[assembly: AssemblyProduct("Trump Clicker")]
+[assembly: AssemblyCopyright("Copyright ©  KampenRaddare 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

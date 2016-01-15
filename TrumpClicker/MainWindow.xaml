@@ -1,0 +1,17 @@
+﻿<Window x:Class="TrumpClicker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrumpClicker"
+        mc:Ignorable="d"
+        Title="Trump Clicker" Height="630" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" FontFamily="Courier New" FontSize="13.333">
+    <Window.ContextMenu>
+        <ContextMenu FontFamily="Courier New" HasDropShadow="True">
+            <MenuItem Header="Save" IsCheckable="True" ToolTip="Turns saving on close on and off."/>
+        </ContextMenu>
+    </Window.ContextMenu>
+    <Grid>
+        
+    </Grid>
+</Window>

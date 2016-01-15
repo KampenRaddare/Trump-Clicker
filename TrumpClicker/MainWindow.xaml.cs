@@ -16,6 +16,7 @@ namespace TrumpClicker
         {
             // Create appdata folder
             string appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Trump Clicker");
+            int save;
 
             // Create appdata file if it does not exist.
             if (!File.Exists(appData)) {
@@ -33,19 +34,25 @@ namespace TrumpClicker
                 }
             }
 
+            // Load save
+            using (StreamReader sr = new StreamReader(Path.Combine(appData, "metadata.txt"))) {
+                save = Convert.ToInt32(sr.ReadLine());
+            }
+
             InitializeComponent();
-            Main = new Game();
+            Main = new Game(save);
         }
 
         /// <summary>
         /// Handles the clicking
-        /// of Trump's face and
-        /// displays it in a file.
+        /// of Trump's face.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) {
-            
+            Main.NumberOfClicks += 1;
+            ClicksNumber.Content = Main.NumberOfClicks;
+            MessageBox.Show("WORK PLS");
         }
 
         /// <summary>
@@ -55,33 +62,6 @@ namespace TrumpClicker
         /// <param name="e"></param>
         private void RestartButton_Click(object sender, RoutedEventArgs e) {
 
-        }
-
-        /// <summary>
-        /// Chooses a save file to
-        /// save the current game too.
-        /// Only THREE max!
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ChooseSaveButton_Click(object sender, RoutedEventArgs e) {
-            
-        }
-
-        /// <summary>
-        /// Turns autosave on
-        /// and off depending
-        /// on if checked or
-        /// not.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SaveContextMenu_Checked(object sender, RoutedEventArgs e) {
-            AutoSave();
-        }
-
-        private void AutoSave() {
-            // . . .
         }
 
         /// <summary>

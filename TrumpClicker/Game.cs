@@ -9,6 +9,10 @@ namespace TrumpClicker {
 
         private int _NumberOfClicks = 0;
 
+        public Game(int numberOfClicks) {
+            _NumberOfClicks = numberOfClicks;
+        }
+
         public void Save() {
             // . . .
         }

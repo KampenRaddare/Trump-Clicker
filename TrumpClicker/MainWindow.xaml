@@ -9,11 +9,6 @@
     <Window.Background>
         <ImageBrush ImageSource="Assets/trump.jpg"/>
     </Window.Background>
-    <Window.ContextMenu>
-        <ContextMenu FontFamily="Courier New" HasDropShadow="True">
-            <MenuItem x:Name="SaveContextMenu" Header="Autosave" IsCheckable="True" ToolTip="Turns saving on close on and off." Checked="SaveContextMenu_Checked"/>
-        </ContextMenu>
-    </Window.ContextMenu>
     <Grid>
         <Rectangle x:Name="AppBar" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="20" Stroke="Black" VerticalAlignment="Top" Width="604" Margin="-10,0,0,0"/>
         <Label x:Name="ClicksLabel" Content="Number Of Clicks:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" FontSize="10.667" FontWeight="Bold" Margin="65,1,0,0"/>

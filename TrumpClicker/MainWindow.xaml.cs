@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.IO;
+using System.Security;
+using System.Windows;
 
 namespace TrumpClicker
 {
@@ -7,9 +10,31 @@ namespace TrumpClicker
     /// </summary>
     public partial class MainWindow : Window
     {
+        Game Main;
+
         public MainWindow()
         {
+            // Create appdata folder
+            string appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Trump Clicker");
+
+            // Create appdata file if it does not exist.
+            if (!File.Exists(appData)) {
+                Directory.CreateDirectory(appData);
+                try {
+                    using (StreamWriter sw = File.CreateText(Path.Combine(appData, "metadata" + ".txt"))) {
+                        sw.WriteLine(0);
+                    }
+                } catch (UnauthorizedAccessException) {
+                    MessageBox.Show("For whatever reason, we do not have access to your AppData folder. \nPlease unristrict access or you can not use this program.");
+                } catch (DirectoryNotFoundException) {
+                    Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Trump Clicker"));
+                } catch (SecurityException) {
+                    MessageBox.Show("For whatever reason, you do not have access to your AppData folder. It is probably restricted by your system administrator.");
+                }
+            }
+
             InitializeComponent();
+            Main = new Game();
         }
 
         /// <summary>
@@ -20,7 +45,7 @@ namespace TrumpClicker
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) {
-
+            
         }
 
         /// <summary>
@@ -57,6 +82,32 @@ namespace TrumpClicker
 
         private void AutoSave() {
             // . . .
+        }
+
+        /// <summary>
+        /// Saves when the window
+        /// closes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Closed(object sender, EventArgs e) {
+            string appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Trump Clicker");
+            string metaData = Path.Combine(appData, "metadata.txt");
+            string[] file = null;
+
+            try {
+                file = File.ReadAllLines(metaData);
+            } catch (Exception) {
+                MessageBox.Show("A saving error has occured . . .", "Fatal Error");
+            }
+
+            file[0] = Convert.ToString(Main.NumberOfClicks);
+
+            try {
+                File.WriteAllLines(metaData, file);
+            } catch (ArgumentNullException) {
+                MessageBox.Show("A saving error has occured . . .", "Fatal Error");
+            }
         }
     }
 }

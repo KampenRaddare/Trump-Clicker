@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TrumpClicker"
         mc:Ignorable="d"
-        Title="Trump Clicker" Height="630" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" FontFamily="Courier New" FontSize="13.333" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        Title="Trump Clicker" Height="630" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" FontFamily="Courier New" FontSize="13.333" MouseLeftButtonDown="Window_MouseLeftButtonDown" Closed="Window_Closed">
     <Window.Background>
         <ImageBrush ImageSource="Assets/trump.jpg"/>
     </Window.Background>
@@ -16,12 +16,10 @@
     </Window.ContextMenu>
     <Grid>
         <Rectangle x:Name="AppBar" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="20" Stroke="Black" VerticalAlignment="Top" Width="604" Margin="-10,0,0,0"/>
-        <Label x:Name="ClicksLabel" Content="Number Of Clicks:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" FontSize="10.667" FontWeight="Bold" Margin="155,0,0,0"/>
-        <Label x:Name="ClicksNumber" Content="0" HorizontalAlignment="Left" Margin="274,0,0,0" VerticalAlignment="Top" Height="20" FontSize="10.667" FontWeight="Bold"/>
+        <Label x:Name="ClicksLabel" Content="Number Of Clicks:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" FontSize="10.667" FontWeight="Bold" Margin="65,1,0,0"/>
+        <Label x:Name="ClicksNumber" Content="0" HorizontalAlignment="Left" Margin="184,0,0,0" VerticalAlignment="Top" Height="20" FontSize="10.667" FontWeight="Bold" RenderTransformOrigin="0.375,-0.55"/>
         <Button x:Name="RestartButton" Content="Restart" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="50" FontSize="10.667" Height="19" Background="{x:Null}" ToolTip="Puts your score back to zero and erases your current save file." BorderBrush="{x:Null}" Click="RestartButton_Click"/>
-        <Button x:Name="ChooseSaveButton" Content="Change Save" HorizontalAlignment="Left" Margin="65,1,0,0" VerticalAlignment="Top" Width="75" FontSize="10.667" Height="19" Background="{x:Null}" ToolTip="Allows you to choose a different save file." BorderBrush="{x:Null}" Click="ChooseSaveButton_Click"/>
         <Rectangle Fill="Black" HorizontalAlignment="Left" Height="20" Margin="55,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="20" Margin="145,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
 
     </Grid>
 </Window>

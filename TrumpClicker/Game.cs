@@ -7,12 +7,7 @@ but I don't give two shits. XD
 namespace TrumpClicker {
     class Game {
 
-        private int _CurrentSaveFileVersion; // Only three saves allowed.
         private int _NumberOfClicks = 0;
-
-        public Game(int currentSaveFileVersion) {
-            
-        }
 
         public void Save() {
             // . . .
@@ -24,11 +19,6 @@ namespace TrumpClicker {
 
         public void RetrieveSave() {
             // . . .
-        }
-
-        public int CurrentSaveFileVersion {
-            get { return _CurrentSaveFileVersion; }
-            set { value = _CurrentSaveFileVersion; }
         }
 
         public int NumberOfClicks {

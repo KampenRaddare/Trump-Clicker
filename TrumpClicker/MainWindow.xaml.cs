@@ -40,7 +40,7 @@ namespace TrumpClicker
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ChooseSaveButton_Click(object sender, RoutedEventArgs e) {
-
+            
         }
 
         /// <summary>
@@ -52,7 +52,11 @@ namespace TrumpClicker
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void SaveContextMenu_Checked(object sender, RoutedEventArgs e) {
+            AutoSave();
+        }
 
+        private void AutoSave() {
+            // . . .
         }
     }
 }

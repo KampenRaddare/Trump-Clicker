@@ -7,7 +7,7 @@ but I don't give two shits. XD
 namespace TrumpClicker {
     class Game {
 
-        private int _NumberOfClicks = 0;
+        internal int NumberOfClicks = 0;
 
         public Game(int numberOfClicks) {
             _NumberOfClicks = numberOfClicks;
@@ -25,9 +25,5 @@ namespace TrumpClicker {
             // . . .
         }
 
-        public int NumberOfClicks {
-            get { return _NumberOfClicks; }
-            set { value = _NumberOfClicks; }
-        }
     }
 }

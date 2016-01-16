@@ -22,7 +22,7 @@ namespace TrumpClicker
             if (!File.Exists(appData)) {
                 Directory.CreateDirectory(appData);
                 try {
-                    using (StreamWriter sw = File.CreateText(Path.Combine(appData, "metadata" + ".txt"))) {
+                    using (StreamWriter sw = File.CreateText(Path.Combine(appData, "metadata.txt"))) {
                         sw.WriteLine(0);
                     }
                 } catch (UnauthorizedAccessException) {
@@ -52,7 +52,6 @@ namespace TrumpClicker
         private void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) {
             Main.NumberOfClicks += 1;
             ClicksNumber.Content = Main.NumberOfClicks;
-            MessageBox.Show("WORK PLS");
         }
 
         /// <summary>

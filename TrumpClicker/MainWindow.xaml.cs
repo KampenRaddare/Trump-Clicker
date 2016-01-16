@@ -21,8 +21,26 @@ namespace TrumpClicker
             // Create appdata file if it does not exist.
             if (!File.Exists(appData)) {
                 Directory.CreateDirectory(appData);
+                try
+                {
+                    using (StreamWriter sw = File.CreateText(Path.Combine(appData, "metadata.txt")))
+                    {
+                        sw.WriteLine(0);
+                    }
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    MessageBox.Show("For whatever reason, we do not have access to your AppData folder. \nPlease unristrict access or you can not use this program.");
+                }
+                catch (DirectoryNotFoundException)
+                {
+                    Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Trump Clicker"));
+                }
+                catch (SecurityException)
+                {
+                    MessageBox.Show("For whatever reason, you do not have access to your AppData folder. It is probably restricted by your system administrator.");
+                }
             }
-
             // #END_SETUP
             InitializeComponent();
 

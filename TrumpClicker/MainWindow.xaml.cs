@@ -50,17 +50,17 @@ namespace TrumpClicker
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) {
-            Main.NumberOfClicks++;
             ClicksNumber.Content = Main.NumberOfClicks;
         }
 
         /// <summary>
-        /// Restarts the current save file.
+        /// Restarts the save file.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void RestartButton_Click(object sender, RoutedEventArgs e) {
             Main.SaveToMeta();
+            ClicksNumber.Content = Main.NumberOfClicks;
         }
 
         /// <summary>

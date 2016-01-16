@@ -49,7 +49,6 @@ namespace TrumpClicker
                 save = Convert.ToInt32(sr.ReadLine());
             }
 
-            MessageBox.Show(save.ToString());
             return save;
         }
     }

@@ -12,7 +12,7 @@
     <Grid>
         <Rectangle x:Name="AppBar" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="20" Stroke="Black" VerticalAlignment="Top" Width="604" Margin="-10,0,0,0"/>
         <Label x:Name="ClicksLabel" Content="Number Of Clicks:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" FontSize="10.667" FontWeight="Bold" Margin="65,1,0,0"/>
-        <Label x:Name="ClicksNumber" Content="0" HorizontalAlignment="Left" Margin="184,0,0,0" VerticalAlignment="Top" Height="20" FontSize="10.667" FontWeight="Bold" RenderTransformOrigin="0.375,-0.55"/>
+        <Label x:Name="ClicksNumber" Content="" HorizontalAlignment="Left" Margin="184,0,0,0" VerticalAlignment="Top" Height="20" FontSize="10.667" FontWeight="Bold" RenderTransformOrigin="0.375,-0.55"/>
         <Button x:Name="RestartButton" Content="Restart" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="50" FontSize="10.667" Height="19" Background="{x:Null}" ToolTip="Puts your score back to zero and erases your current save file." BorderBrush="{x:Null}" Click="RestartButton_Click"/>
         <Rectangle Fill="Black" HorizontalAlignment="Left" Height="20" Margin="55,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
 

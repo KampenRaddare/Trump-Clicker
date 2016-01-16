@@ -6,11 +6,12 @@ namespace TrumpClicker
 {
     class Game : BaseAbstract
     {
-        public Game(int numberOfClicks)
-        {
-            this._NumberOfClicks = numberOfClicks;
-        }
 
+        /// <summary>
+        /// Restarts game and
+        /// resets metadata to
+        /// zero.
+        /// </summary>
         public override void SaveToMeta()
         {
             // Restarting
@@ -38,8 +39,6 @@ namespace TrumpClicker
             {
                 MessageBox.Show("A saving error has occured . . .", "Fatal Error");
             }
-
-            this._NumberOfClicks = -1;  // This goes one higher for some reason? If you know why tell me, because I am to lazy to figure out right now.
         }
     }
 }

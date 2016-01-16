@@ -2,7 +2,7 @@
 {
     abstract class BaseAbstract
     {
-        public int _NumberOfClicks = 0;
+        private int _NumberOfClicks;
 
         public abstract void SaveToMeta();
 
@@ -10,10 +10,9 @@
         {
             get
             {
-                this._NumberOfClicks++;
                 return this._NumberOfClicks;
             }
-            set { value = this._NumberOfClicks; }
+            set { this._NumberOfClicks = value; }
         }
     }
 }

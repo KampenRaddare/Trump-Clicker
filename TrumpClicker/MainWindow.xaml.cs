@@ -19,23 +19,33 @@ namespace TrumpClicker
             int save;
 
             // Create appdata file if it does not exist.
-            if (!File.Exists(appData)) {
+            if (!File.Exists(appData))
+            {
                 Directory.CreateDirectory(appData);
-                try {
-                    using (StreamWriter sw = File.CreateText(Path.Combine(appData, "metadata.txt"))) {
+                try
+                {
+                    using (StreamWriter sw = File.CreateText(Path.Combine(appData, "metadata.txt")))
+                    {
                         sw.WriteLine(0);
                     }
-                } catch (UnauthorizedAccessException) {
+                }
+                catch (UnauthorizedAccessException)
+                {
                     MessageBox.Show("For whatever reason, we do not have access to your AppData folder. \nPlease unristrict access or you can not use this program.");
-                } catch (DirectoryNotFoundException) {
+                }
+                catch (DirectoryNotFoundException)
+                {
                     Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Trump Clicker"));
-                } catch (SecurityException) {
+                }
+                catch (SecurityException)
+                {
                     MessageBox.Show("For whatever reason, you do not have access to your AppData folder. It is probably restricted by your system administrator.");
                 }
             }
 
             // Load save
-            using (StreamReader sr = new StreamReader(Path.Combine(appData, "metadata.txt"))) {
+            using (StreamReader sr = new StreamReader(Path.Combine(appData, "metadata.txt")))
+            {
                 save = Convert.ToInt32(sr.ReadLine());
             }
 
@@ -49,7 +59,8 @@ namespace TrumpClicker
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) {
+        private void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
             ClicksNumber.Content = Main.NumberOfClicks;
         }
 
@@ -58,7 +69,8 @@ namespace TrumpClicker
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void RestartButton_Click(object sender, RoutedEventArgs e) {
+        private void RestartButton_Click(object sender, RoutedEventArgs e)
+        {
             Main.SaveToMeta();
             ClicksNumber.Content = Main.NumberOfClicks;
         }
@@ -69,7 +81,8 @@ namespace TrumpClicker
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Window_Closed(object sender, EventArgs e) {
+        private void Window_Closed(object sender, EventArgs e)
+        {
             Save Save = new Save();
 
             Save.SaveToMeta();

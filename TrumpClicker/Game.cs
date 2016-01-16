@@ -2,30 +2,40 @@
 using System.IO;
 using System.Windows;
 
-namespace TrumpClicker {
-    class Game : BaseAbstract {
-        public Game(int numberOfClicks) {
+namespace TrumpClicker
+{
+    class Game : BaseAbstract
+    {
+        public Game(int numberOfClicks)
+        {
             this._NumberOfClicks = numberOfClicks;
         }
 
-        public override void SaveToMeta() {
+        public override void SaveToMeta()
+        {
             // Restarting
 
             string appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Trump Clicker");
             string metaData = Path.Combine(appData, "metadata.txt");
             string[] file = null;
 
-            try {
+            try
+            {
                 file = File.ReadAllLines(metaData);
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 MessageBox.Show("A saving error has occured . . .", "Fatal Error");
             }
 
             file[0] = Convert.ToString(0);
 
-            try {
+            try
+            {
                 File.WriteAllLines(metaData, file);
-            } catch (ArgumentNullException) {
+            }
+            catch (ArgumentNullException)
+            {
                 MessageBox.Show("A saving error has occured . . .", "Fatal Error");
             }
 

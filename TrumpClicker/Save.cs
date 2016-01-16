@@ -3,13 +3,10 @@ using System.IO;
 using System.Windows;
 
 namespace TrumpClicker {
-    class Game : BaseAbstract {
-        public Game(int numberOfClicks) {
-            this._NumberOfClicks = numberOfClicks;
-        }
+    class Save : BaseAbstract {
 
         public override void SaveToMeta() {
-            // Restarting
+            // Saving
 
             string appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Trump Clicker");
             string metaData = Path.Combine(appData, "metadata.txt");
@@ -21,7 +18,7 @@ namespace TrumpClicker {
                 MessageBox.Show("A saving error has occured . . .", "Fatal Error");
             }
 
-            file[0] = Convert.ToString(0);
+            file[0] = Convert.ToString(this.NumberOfClicks);
 
             try {
                 File.WriteAllLines(metaData, file);

@@ -50,17 +50,17 @@ namespace TrumpClicker
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) {
-            Main.NumberOfClicks += 1;
             ClicksNumber.Content = Main.NumberOfClicks;
         }
 
         /// <summary>
-        /// Restarts the current save file.
+        /// Restarts the save file.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void RestartButton_Click(object sender, RoutedEventArgs e) {
-
+            Main.SaveToMeta();
+            ClicksNumber.Content = Main.NumberOfClicks;
         }
 
         /// <summary>
@@ -70,23 +70,9 @@ namespace TrumpClicker
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Window_Closed(object sender, EventArgs e) {
-            string appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Trump Clicker");
-            string metaData = Path.Combine(appData, "metadata.txt");
-            string[] file = null;
+            Save Save = new Save();
 
-            try {
-                file = File.ReadAllLines(metaData);
-            } catch (Exception) {
-                MessageBox.Show("A saving error has occured . . .", "Fatal Error");
-            }
-
-            file[0] = Convert.ToString(Main.NumberOfClicks);
-
-            try {
-                File.WriteAllLines(metaData, file);
-            } catch (ArgumentNullException) {
-                MessageBox.Show("A saving error has occured . . .", "Fatal Error");
-            }
+            Save.SaveToMeta();
         }
     }
 }

@@ -1,24 +1,27 @@
 ﻿using System;
 using System.IO;
 using System.Windows;
+using System.Collections.Generic;
 
 namespace TrumpClicker
 {
-    internal sealed class Save
+    class Save
     {
-
+        private static readonly string appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Trump Clicker");
+        private static readonly string metaData = Path.Combine(appData, "metadata.txt");
         /// <summary>
-        /// Saves provided data to metadata
+        /// Saves  provided data to metadata
         /// </summary>
         public void WriteSaveData(int data)
         {
+            // Saving
             try
             {
-                File.WriteAllText(Meta.metaData, data.ToString());
+                File.WriteAllText(metaData, data.ToString());
             }
             catch (ArgumentNullException)
             {
-                MessageBox.Show("A saving error has occured.", Meta.fatalError);
+                MessageBox.Show("A saving error has occured . . .", "Fatal Error");
             }
         }
 
@@ -29,13 +32,14 @@ namespace TrumpClicker
         /// <returns></returns>
         public int ReadSaveData()
         {
+            // Load save 
             try
             {
-                return int.Parse(File.ReadAllText(Meta.metaData));
+                return int.Parse(File.ReadAllText(metaData));
             }
             catch
             {
-                MessageBox.Show("Save file is damaged.\nAll progress has been lost.", Meta.fatalError);
+                MessageBox.Show("Save file is damaged\nAll progress has been lost.", "Fatal Error");
                 return 0;
             }
         }

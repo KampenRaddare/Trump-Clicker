@@ -2,7 +2,6 @@
 using System.IO;
 using System.Security;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace TrumpClicker

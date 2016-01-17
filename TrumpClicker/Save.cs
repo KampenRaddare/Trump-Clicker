@@ -2,17 +2,16 @@
 using System.IO;
 using System.Windows;
 using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace TrumpClicker
 {
-    class Save : BaseAbstract
+    class Save
     {
 
         /// <summary>
-        /// Saves to metadata
+        /// Saves  provided data to metadata
         /// </summary>
-        public override void SaveToMeta()
+        public void WriteSaveData(int data)
         {
             // Saving
 
@@ -20,8 +19,7 @@ namespace TrumpClicker
             string metaData = Path.Combine(appData, "metadata.txt");
             List<string> file = new List<string>();
 
-            file.Add(this.NumberOfClicks.ToString());
-            Debug.WriteLine(this.NumberOfClicks);
+            file.Add(data.ToString());
 
             try
             {
@@ -38,17 +36,21 @@ namespace TrumpClicker
         /// known save.
         /// </summary>
         /// <returns></returns>
-        public int LoadSave()
+        public int ReadSaveData()
         {
             string appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Trump Clicker");
             int save;
 
-            // Load save
-            using (StreamReader sr = new StreamReader(Path.Combine(appData, "metadata.txt")))
+            // Load save 
+            try
             {
-                save = Convert.ToInt32(sr.ReadLine());
+                save = int.Parse(File.ReadAllText(Path.Combine(appData, "metadata.txt")));
             }
-
+            catch
+            {
+                MessageBox.Show("Save file is damaged\nAll progress has been lost.", "Fatal Error");
+                save = 0;
+            }
             return save;
         }
     }

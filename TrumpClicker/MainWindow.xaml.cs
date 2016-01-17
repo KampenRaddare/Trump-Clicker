@@ -10,12 +10,12 @@ namespace TrumpClicker
     /// </summary>
     public partial class MainWindow : Window
     {
-        Game Main = new Game();
+        Game Game = new Game();
         Save Save = new Save();
 
         public MainWindow()
         {
-            // #SETUP
+            #region SETUP
             string appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Trump Clicker");
 
             // Create appdata file if it does not exist.
@@ -23,10 +23,9 @@ namespace TrumpClicker
                 Directory.CreateDirectory(appData);
                 try
                 {
-                    using (StreamWriter sw = File.CreateText(Path.Combine(appData, "metadata.txt")))
-                    {
-                        sw.WriteLine(0);
-                    }
+                    string permissionTest = Path.Combine(appData, "permissiontest.txt");
+                    File.WriteAllText(permissionTest,"ayy lmao");
+                    File.Delete(permissionTest);
                 }
                 catch (UnauthorizedAccessException)
                 {
@@ -41,12 +40,12 @@ namespace TrumpClicker
                     MessageBox.Show("For whatever reason, you do not have access to your AppData folder. It is probably restricted by your system administrator.");
                 }
             }
-            // #END_SETUP
+            #endregion
             InitializeComponent();
 
             // Load the last save
-            Main.NumberOfClicks = Save.LoadSave();
-            ClicksNumber.Content = Main.NumberOfClicks;
+            Game.NumberOfClicks = Save.ReadSaveData();
+            ClicksNumber.Content = Game.NumberOfClicks;
         }
 
         /// <summary>
@@ -56,9 +55,8 @@ namespace TrumpClicker
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) {
-            Main.NumberOfClicks++;
-            Save.NumberOfClicks++;
-            ClicksNumber.Content = Main.NumberOfClicks;
+            Game.NumberOfClicks++;
+            ClicksNumber.Content = Game.NumberOfClicks;
         }
 
         /// <summary>
@@ -67,8 +65,9 @@ namespace TrumpClicker
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void RestartButton_Click(object sender, RoutedEventArgs e) {
-            Main.SaveToMeta();
-            ClicksNumber.Content = Main.NumberOfClicks;
+            Game.NumberOfClicks = 0;
+            Save.WriteSaveData(Game.NumberOfClicks);
+            ClicksNumber.Content = Game.NumberOfClicks;
         }
 
         /// <summary>
@@ -78,7 +77,7 @@ namespace TrumpClicker
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Window_Closed(object sender, EventArgs e) {
-            Save.SaveToMeta();
+            Save.WriteSaveData(Game.NumberOfClicks);
         }
     }
 }

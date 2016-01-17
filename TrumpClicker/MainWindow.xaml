@@ -10,7 +10,7 @@
         <ImageBrush ImageSource="Assets/trump.jpg"/>
     </Window.Background>
     <Grid>
-        <Rectangle x:Name="AppBar" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="20" Stroke="Black" VerticalAlignment="Top" Width="584"/>
+        <Rectangle x:Name="AppBar" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="20" Stroke="Black" VerticalAlignment="Top" Width="594" Margin="-10,0,0,0"/>
         <Label x:Name="ClicksLabel" Content="Number Of Clicks:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" FontSize="10.667" FontWeight="Bold" Margin="60,0,0,0"/>
         <Label x:Name="ClicksNumber" Content="" HorizontalAlignment="Left" Margin="175,1,0,0" VerticalAlignment="Top" Height="19" FontSize="10.667" FontWeight="Bold" RenderTransformOrigin="0.375,-0.55"/>
         <Button x:Name="RestartButton" Content="Restart" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="55" FontSize="10.667" Height="19" Background="{x:Null}" ToolTip="Puts your score back to zero and erases your current save file." BorderBrush="{x:Null}" Click="RestartButton_Click"/>

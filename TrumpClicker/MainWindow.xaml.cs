@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Media;
 using System.Security;
 using System.Windows;
 using System.Windows.Media.Imaging;
@@ -13,11 +14,14 @@ namespace TrumpClicker
     {
         Game Game = new Game();
         Save Save = new Save();
+        SoundPlayer player;
 
         public MainWindow()
         {
             #region SETUP
             string appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Trump Clicker");
+            player = new SoundPlayer(Properties.Resources.DnBMax);
+            player.PlayLooping();
 
             // Create appdata file if it does not exist.
             if (!File.Exists(appData)) {

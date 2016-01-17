@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TrumpClicker"
         mc:Ignorable="d"
-        Title="Trump Clicker" Height="426" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" FontFamily="Courier New" FontSize="13.333" MouseLeftButtonDown="Window_MouseLeftButtonDown" Closed="Window_Closed">
+        Title="Trump Clicker" Height="426" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" FontFamily="Courier New" FontSize="13.333" MouseLeftButtonDown="Window_MouseLeftButtonDown" Closed="Window_Closed" MouseLeftButtonUp="Window_MouseLeftButtonUp">
     <Window.Background>
         <ImageBrush ImageSource="Assets/trump.jpg"/>
     </Window.Background>
@@ -15,6 +15,7 @@
         <Label x:Name="ClicksNumber" Content="" HorizontalAlignment="Left" Margin="175,1,0,0" VerticalAlignment="Top" Height="19" FontSize="10.667" FontWeight="Bold" RenderTransformOrigin="0.375,-0.55"/>
         <Button x:Name="RestartButton" Content="Restart" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="55" FontSize="10.667" Height="19" Background="{x:Null}" ToolTip="Puts your score back to zero and erases your current save file." BorderBrush="{x:Null}" Click="RestartButton_Click"/>
         <Rectangle Fill="Black" HorizontalAlignment="Left" Height="20" Margin="55,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
+        <Image x:Name="UpArrow" HorizontalAlignment="Left" Height="300" Margin="120,65,0,0" VerticalAlignment="Top" Width="215"/>
 
     </Grid>
 </Window>

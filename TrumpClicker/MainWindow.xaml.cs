@@ -2,6 +2,8 @@
 using System.IO;
 using System.Security;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace TrumpClicker
 {
@@ -56,7 +58,13 @@ namespace TrumpClicker
         /// <param name="e"></param>
         private void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) {
             Game.NumberOfClicks++;
+            UpArrow.Source = new BitmapImage(new Uri(@"\Assets\UpArrow.png", UriKind.Relative));
             ClicksNumber.Content = Game.NumberOfClicks;
+        }
+
+        private void Window_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            UpArrow.Source = new BitmapImage(new Uri(@"\Assets\Blank.bmp", UriKind.Relative));
         }
 
         /// <summary>

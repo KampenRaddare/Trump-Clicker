@@ -20,10 +20,12 @@ namespace TrumpClicker
         {
             #region SETUP
             string appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Trump Clicker");
+
+            // Creating Soundplayer and playing it
             player = new SoundPlayer(Properties.Resources.DnBMax);
             player.PlayLooping();
 
-            // Create appdata file if it does not exist.
+            // Create appdata file and metadata file if they do not exist.
             if (!File.Exists(appData)) {
                 Directory.CreateDirectory(appData);
                 try
@@ -61,12 +63,14 @@ namespace TrumpClicker
         /// <param name="e"></param>
         private void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) {
             Game.NumberOfClicks++;
+            // Setting UpTrump on click
             UpArrow.Source = new BitmapImage(new Uri(@"\Assets\UpArrow.png", UriKind.Relative));
             ClicksNumber.Content = Game.NumberOfClicks;
         }
 
         private void Window_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            // Deselecting UpTrump on click finish
             UpArrow.Source = new BitmapImage(new Uri(@"\Assets\Blank.bmp", UriKind.Relative));
         }
 

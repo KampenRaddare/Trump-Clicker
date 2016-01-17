@@ -8,8 +8,9 @@ namespace TrumpClicker
     {
         private static readonly string appData = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Trump Clicker");
         private static readonly string metaData = Path.Combine(appData, "metadata.txt");
+
         /// <summary>
-        /// Saves  provided data to metadata
+        /// Saves provided data to metadata
         /// </summary>
         public void WriteSaveData(int data)
         {
@@ -31,7 +32,7 @@ namespace TrumpClicker
         /// <returns></returns>
         public int ReadSaveData()
         {
-            // Load save 
+            // Loading save
             try
             {
                 return int.Parse(File.ReadAllText(metaData));

@@ -3,6 +3,7 @@
     class Game
     {
         private int _NumberOfClicks;
+
         public int NumberOfClicks
         {
             get

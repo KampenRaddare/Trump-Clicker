@@ -2,7 +2,9 @@
 using System.IO;
 using System.Security;
 using System.Windows;
+using System.Media;
 using System.Windows.Media.Imaging;
+using System.Threading;
 
 namespace TrumpClicker
 {
@@ -13,6 +15,7 @@ namespace TrumpClicker
     {
         Game Game = new Game();
         Save Save = new Save();
+        SoundPlayer Click;
 
         public MainWindow()
         {
@@ -56,7 +59,11 @@ namespace TrumpClicker
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e) {
+            Click = new SoundPlayer(Properties.Resources.Click);
+            Click.Play();
+
             Game.NumberOfClicks++;
+
             // Setting UpTrump on click
             UpArrow.Source = new BitmapImage(new Uri(@"\Assets\UpArrow.png", UriKind.Relative));
             ClicksNumber.Content = Game.NumberOfClicks;
@@ -64,6 +71,8 @@ namespace TrumpClicker
 
         private void Window_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            Thread.Sleep(300);
+
             // Deselecting UpTrump on click finish
             UpArrow.Source = new BitmapImage(new Uri(@"\Assets\Blank.bmp", UriKind.Relative));
         }

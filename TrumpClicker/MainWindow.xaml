@@ -15,7 +15,7 @@
         <Label x:Name="ClicksNumber" Content="" HorizontalAlignment="Left" Margin="175,1,0,0" VerticalAlignment="Top" Height="19" FontSize="10.667" FontWeight="Bold" RenderTransformOrigin="0.375,-0.55"/>
         <Button x:Name="RestartButton" Content="Restart" HorizontalAlignment="Left" Margin="0,1,0,0" VerticalAlignment="Top" Width="55" FontSize="10.667" Height="19" Background="{x:Null}" ToolTip="Puts your score back to zero and erases your current save file." BorderBrush="{x:Null}" Click="RestartButton_Click"/>
         <Rectangle Fill="Black" HorizontalAlignment="Left" Height="20" Margin="55,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="5"/>
-        <Image x:Name="UpArrow" HorizontalAlignment="Left" Height="300" Margin="120,65,0,0" VerticalAlignment="Top" Width="215"/>
+        <Image x:Name="UpArrow" HorizontalAlignment="Left" Height="95" Margin="1,302,0,0" VerticalAlignment="Top" Width="59"/>
 
     </Grid>
 </Window>

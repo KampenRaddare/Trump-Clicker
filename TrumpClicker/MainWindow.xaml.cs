@@ -16,6 +16,7 @@ namespace TrumpClicker
         Game Game = new Game();
         Save Save = new Save();
         SoundPlayer Click;
+        System.Timers.Timer Timer;
 
         public MainWindow()
         {
@@ -71,7 +72,12 @@ namespace TrumpClicker
 
         private void Window_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Thread.Sleep(300);
+            Timer = new System.Timers.Timer();
+            Timer.Interval += 100;
+            Timer.Elapsed += ReEnableForm;
+            Timer.Start();
+
+            IsEnabled = false;
 
             // Deselecting UpTrump on click finish
             UpArrow.Source = new BitmapImage(new Uri(@"\Assets\Blank.bmp", UriKind.Relative));
@@ -86,6 +92,16 @@ namespace TrumpClicker
             Game.NumberOfClicks = 0;
             Save.WriteSaveData(Game.NumberOfClicks);
             ClicksNumber.Content = Game.NumberOfClicks;
+        }
+
+        private void ReEnableForm(object source, System.Timers.ElapsedEventArgs e)
+        {
+            // Allows updating of UI Elements from a different thread
+            this.Dispatcher.Invoke((Action)(() =>
+            {
+                IsEnabled = true;
+            }));
+            Timer.Dispose();
         }
 
         /// <summary>
